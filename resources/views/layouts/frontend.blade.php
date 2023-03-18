@@ -39,7 +39,7 @@
     </header>
     @yield('content')
 </div>
-</div>
+
 
 
 

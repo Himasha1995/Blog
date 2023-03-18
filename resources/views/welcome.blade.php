@@ -9,9 +9,9 @@
             </div>
         </div>
 
-        <div class="row mb-2">
+        <div class="row mb-5">
             @foreach($posts as $post)
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start">
                             <img src="{{asset('thumbnails/' . $post->thumbmail) }}" class="img-thumbnail" alt="Thumbmail">
@@ -24,10 +24,10 @@
                         </div>
                     </div>
             @endforeach
+                </div>
+        </div>
 
 
 
-
-
-
+@endsection
 
