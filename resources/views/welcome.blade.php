@@ -18,7 +18,7 @@
                             <h3 class="mb-2">
                                 <a class="text-dark" href="#">{{$post->title}}</a>
                             </h3>
-                            <div class="mb-1 text-muted">{{date('y-m-d',strtotime($post->created_at))}}</div>
+                            <div class="mb-1 text-muted">{{$post->user->name}} {{date('y-m-d',strtotime($post->created_at))}}</div>
                             <p class="card-text mb-auto">{{$post->description}}</p>
                             <a href="{{route('posts.show', $post->id)}}">Continue reading</a>
                         </div>
