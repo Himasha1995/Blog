@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Dotenv\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -37,15 +37,25 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-
-
+        $validator = Validator::make($request->all(),[
+             'title' =>'required',
+             'description' =>'required',
+             'thumbmail' =>'required|image'
+    ]);
+        if ($validator->fails()){
+            return  back()->with('status', 'Something went wrong');
+        }else{
+            $imageName = time() .".". $request->thumbmail->extension();
+            $request->thumbmail->move(public_path('thumbnails'), $imageName);
             post::create([
                 'user_id' => auth()->user()->id,
                 'title' => $request->title,
-                'description' => $request->description
-            ]);
+                'description' => $request->description,
+                'thumbmail' => $imageName
 
-         return redirect(route('posts.all'))->with('status', 'Post Created Successfully ');
+                ]);
+        }
+        return redirect(route('posts.all'))->with('status', 'Post Created Successfully ');
     }
 
     /**

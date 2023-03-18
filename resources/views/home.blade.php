@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                        <form method="post" action="{{('posts/store')}}">
+                        <form method="post" action="{{('posts/store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Post Title</label>
@@ -23,8 +23,11 @@
 
                             <div class="form-group">
                                 <label>Post Description</label>
-                                <textarea class="form-control" name="description" placeholder="Enter post description" row="50" required></textarea>                            </div>
-
+                                <textarea class="form-control" name="description" placeholder="Enter post description" row="50" required></textarea>
+                            </div>
+                        <div class="form-group">
+                            <input class="form-control" type="file" name="thumbmail" type="file">
+                        </div>
 
                             <button type="submit" class="btn btn-primary mt-2">Post</button>
                         </form>

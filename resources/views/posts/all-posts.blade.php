@@ -16,6 +16,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -25,6 +27,7 @@
                         <th scope="row">{{$post->id}}</th>
                         <td>{{$post->title}}</td>
                         <td>{{$post->description}}</td>
+                        <td>{{$post->thumbmail}}</td>
                         <td>
                             <a href="{{ route('posts.edit', $post->id)}}" class="btn btn-sm btn-primary">Edit</a>
                             <a href="{{ route('posts.delete', $post->id)}}" class="btn btn-sm btn-danger">Delete</a>
